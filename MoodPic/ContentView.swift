@@ -1,24 +1,18 @@
-//
-//  ContentView.swift
-//  MoodPic
-//
-//  Created by SDC-User on 19/05/26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var hasOnboarded = false
+    @StateObject private var moodStore = MoodStore()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if hasOnboarded {
+                MainTabView()
+                    .environmentObject(moodStore)
+            } else {
+                OnboardingView(hasOnboarded: $hasOnboarded)
+            }
         }
-        .padding()
+        .preferredColorScheme(.light) // The design is primarily light mode
     }
-}
-
-#Preview {
-    ContentView()
 }
