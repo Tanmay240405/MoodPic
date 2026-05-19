@@ -66,7 +66,10 @@ struct GalleryView: View {
                         VStack(spacing: 16) {
                             ForEach(MoodType.allCases) { mood in
                                 let entries = moodStore.moods.filter { $0.mood == mood }
-                                MoodFolderCard(mood: mood, entries: entries)
+                                NavigationLink(destination: MoodFolderDetailView(mood: mood, entries: entries)) {
+                                    MoodFolderCard(mood: mood, entries: entries)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .padding(.horizontal, 20)
@@ -77,7 +80,7 @@ struct GalleryView: View {
                 }
             }
             .navigationTitle("My Moods")
-            .navigationBarHidden(true) // We could hide it to let content breathe like in the screenshot
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }

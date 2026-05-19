@@ -37,9 +37,9 @@ class MoodStore: ObservableObject {
         // Seed sample entries only on very first launch (no saved data yet)
         if moods.isEmpty {
             moods = [
-                MoodEntry(mood: .happy, reason: "Good day!", photoData: nil, date: Date().addingTimeInterval(-86400 * 2)),
-                MoodEntry(mood: .calm, reason: "Meditation session", photoData: nil, date: Date().addingTimeInterval(-86400)),
-                MoodEntry(mood: .excited, reason: "Weekend trip", photoData: nil, date: Date())
+                MoodEntry(mood: .happy,   reason: "Good day!",          photoData: nil, date: Date().addingTimeInterval(-86400 * 2)),
+                MoodEntry(mood: .proud,   reason: "Meditation session",  photoData: nil, date: Date().addingTimeInterval(-86400)),
+                MoodEntry(mood: .delight, reason: "Weekend trip",        photoData: nil, date: Date())
             ]
         }
     }
